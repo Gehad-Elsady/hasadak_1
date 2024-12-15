@@ -204,15 +204,26 @@ class _SignUpPageState extends State<SignUpPage> {
                                 showDialog(
                                   context: context,
                                   builder: (context) {
-                                    return Lottie.asset(
-                                        "assets/lottie/created.json");
+                                    return Column(
+                                      children: [
+                                        Lottie.asset(
+                                            "assets/lottie/created.json"),
+                                        Text(
+                                          "Account created successfully!\n Please verify your email",
+                                          style: TextStyle(
+                                              fontSize: 18,
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.black),
+                                        ),
+                                      ],
+                                    );
                                   },
                                 );
                                 Timer(
                                   Duration(seconds: 3),
                                   () {
                                     Navigator.pushNamed(
-                                        context, HomeScreen.routeName);
+                                        context, LoginPage.routeName);
                                   },
                                 );
                               },
